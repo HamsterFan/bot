@@ -1,0 +1,34 @@
+name: JueJin
+
+on:
+  schedule:
+    - cron: '30 21 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout codes
+        uses: actions/checkout@v2
+
+      - name: Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Run npm install
+        run: npm install
+
+      - name: Push
+        run: node ./JueJin/index.js
+        env:
+          JUEJIN_COOKIE: ${{ secrets.JUEJIN_COOKIE }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY }}
+
+      - name: Upload result file
+        uses: actions/upload-artifact@v2
+        with:
+          name: result
+          path: ./*.txt

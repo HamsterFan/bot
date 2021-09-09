@@ -1,0 +1,24 @@
+{
+  "name": "bot",
+  "version": "0.0.1",
+  "description": "",
+  "main": "delray.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delraywang/script.git"
+  },
+  "author": {
+    "name": "delray",
+    "email": "delray.wang@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/delraywang/script/issues"
+  },
+  "homepage": "https://github.com/delraywang/script",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "download": "^8.0.0",
+    "request": "^2.88.2"
+  }
+}
