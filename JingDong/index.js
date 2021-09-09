@@ -15,9 +15,14 @@ const ERROR_PATH = './jingdong_error.txt'
 
 const $delray = delray({ RESULT_PATH, ERROR_PATH })
 
-function setupCookie() {
+function setup() {
   let content = $delray.readFileSync(JINGDONG_PATH, 'utf8')
-  content = content.replace(/var Key = ''/, `var Key = '${cookie}'`)
+  //设置cookie
+  content = content.replace(/var OtherKey = ``/, `var OtherKey = '${cookie}'`)
+  //间隔时间
+  content = content.replace(/var stop = '0'/, `var stop = '2000-3000'`)
+  //接口超时退出
+  content = content.replace(/var out = 0/, `var out = 6000`)
   $delray.writeFileSync(JINGDONG_PATH, content, 'utf8')
 }
 
@@ -32,7 +37,7 @@ const jingfong = async () => {
     .then(() => {
       console.log('脚本文件下载成功，执行脚本中，请耐心等待！')
       //替换cookie
-      setupCookie()
+      setup()
       //执行脚本
       $delray.execSync(`node ${JINGDONG_PATH} >> ${RESULT_PATH}`)
       //推送
