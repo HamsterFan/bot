@@ -21,7 +21,7 @@ jobs:
       - name: Run npm install
         run: npm install
 
-      - name: Run and push
+      - name: Run script and push
         run: node ./JingDong/index.js
         env:
           JINGDONG_COOKIE: ${{ secrets.JINGDONG_COOKIE }}

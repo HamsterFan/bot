@@ -21,7 +21,7 @@ jobs:
       - name: Run npm install
         run: npm install
 
-      - name: Push
+      - name: Run script and push
         run: node ./JueJin/index.js
         env:
           JUEJIN_COOKIE: ${{ secrets.JUEJIN_COOKIE }}
